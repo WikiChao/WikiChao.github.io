@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors on Chao</title>
+    <title>Authors on Chao Huang&#39;s Homepage</title>
     <link>https://WikiChao.github.io/authors/</link>
-    <description>Recent content in Authors on Chao</description>
+    <description>Recent content in Authors on Chao Huang&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -20,11 +20,38 @@
     </item>
     
     <item>
+      <title>Chao Huang^</title>
+      <link>https://WikiChao.github.io/authors/chao-huang/</link>
+      <pubDate>Sun, 07 Apr 2019 03:03:47 +0000</pubDate>
+      
+      <guid>https://WikiChao.github.io/authors/chao-huang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chi-wing Fu,Philip</title>
+      <link>https://WikiChao.github.io/authors/chi-wing-fuphilip/</link>
+      <pubDate>Sun, 07 Apr 2019 03:03:47 +0000</pubDate>
+      
+      <guid>https://WikiChao.github.io/authors/chi-wing-fuphilip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>David J. Brady</title>
       <link>https://WikiChao.github.io/authors/david-j.-brady/</link>
       <pubDate>Sun, 07 Apr 2019 03:09:35 +0000</pubDate>
       
       <guid>https://WikiChao.github.io/authors/david-j.-brady/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruihui Li^</title>
+      <link>https://WikiChao.github.io/authors/ruihui-li/</link>
+      <pubDate>Sun, 07 Apr 2019 03:03:47 +0000</pubDate>
+      
+      <guid>https://WikiChao.github.io/authors/ruihui-li/</guid>
       <description></description>
     </item>
     
