@@ -5,8 +5,14 @@
   <meta name="description"
         content="DAVIS">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DAVIS: High-Quality Audio-Visual Separation with Generative Diffusion Models</title>
+  <title>High-Quality Visually-Guided Sound Separation from Diverse Categories</title>
 
+  <style>
+    table audio {
+            width: 100%;
+            max-width: 200px; 
+    }
+  </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -21,6 +27,12 @@
 
     gtag('config', 'G-PYVRSFMDRL');
   </script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -48,14 +60,14 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DAVIS: High-Quality Audio-Visual Separation with Generative Diffusion Models</h1>
+          <h1 class="title is-1 publication-title">High-Quality Visually-Guided Sound Separation from Diverse Categories</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <p>Chao Huang<sup>1</sup>, Susan Liang<sup>1</sup>, Yapeng Tian<sup>2</sup>, Anurag Kumar<sup>3</sup>, Chenliang Xu<sup>1</sup></p>
-            </span>
-            <span class="author-block">
-              <p><sup>1</sup>University of Rochester, <sup>2</sup>University of Texas at Dallas, <sup>3</sup>Meta Reality Labs Research</p>
-            </span>
+              <p>Chao Huang, Susan Liang, Yapeng Tian, Anurag Kumar, Chenliang Xu</p></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">ACCV 2024 <span style="color: rgb(200, 0, 0);">(Oral)</span> </span>
           </div>
 
           </div>
@@ -137,7 +149,8 @@
             We propose DAVIS, a <strong>D</strong>iffusion model-based <strong>A</strong>udio-<strong>VI</strong>usal <strong>S</strong>eparation framework that solves the audio-visual sound source separation task through a generative manner. 
           </p>
           <p>
-            While existing discriminative methods that perform mask regression have made remarkable progress in this field, they face limitations in capturing the complex data distribution required for high-quality separation of sounds from diverse categories. In contrast, DAVIS leverages a generative diffusion model and a Separation U-Net to synthesize separated magnitudes starting from Gaussian noises, conditioned on both the audio mixture and the visual footage. With its generative objective, DAVIS is better suited to achieving the goal of high-quality sound separation across diverse categories. We compare DAVIS to existing state-of-the-art discriminative audio-visual separation methods on the domain-specific MUSIC dataset and the open-domain AVE dataset, and results show that DAVIS outperforms other methods in separation quality, demonstrating the advantages of our framework for tackling the audio-visual source separation task
+            Existing methods typically frame sound separation as a mask-based regression problem, achieving significant progress. 
+            However, they face limitations in capturing the complex data distribution required for high-quality separation of sounds from diverse categories. In contrast, DAVIS leverages a generative diffusion model and a Separation U-Net to synthesize separated sounds directly from Gaussian noise, conditioned on both the audio mixture and the visual information. With its generative objective, DAVIS is better suited to achieving the goal of high-quality sound separation across diverse sound categories. We compare DAVIS to existing state-of-the-art discriminative audio-visual separation methods on the AVE and MUSIC datasets, and results show that DAVIS outperforms other methods in separation quality, demonstrating the advantages of our framework for tackling the audio-visual source separation task. We will make our source code and pre-trained models publicly available.
           </p>
 
         </div>
@@ -150,19 +163,17 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-          <!-- <video id="replay-video"
+          <video id="replay-video"
                   controls
                   preload
                   playsinline
                   width="100%">
-             <source src="./static/videos/video_demo.mp4"
+             <source src="./static/video.mp4"
                      type="video/mp4">
-           </video> -->
+           </video>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
   </div>
 </section>
@@ -176,12 +187,12 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Iterative Synthesis</h2>
+        <h2 class="title is-3">&#127775 Iterative Synthesis</h2>
 
         <!-- Interpolating. -->
         <div class="content has-text-justified">
           <p>
-            Here, we animate the syntheis process by showing how the separated magnitude spectrogram changes from time step T=100 to T=0. Specifically, given the visual frames from two videos V(1) and V(2) and the corresponding audio mixture, our model synthsizes the separated spectrograms A(1) and A(2) iteratively and finally outputs clean separated spectrograms. Use the slider here to linearly control the iterative syntheis.
+            Here, we animate the syntheis process by showing how the separated magnitude spectrogram changes with 100-steps sampling. Specifically, given the visual frames from two videos V(1) and V(2) and the corresponding audio mixture, our model synthsizes the separated spectrograms A(1) and A(2) iteratively and finally outputs clean separated spectrograms. Use the slider here to linearly control the iterative syntheis.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -218,14 +229,237 @@
   </div>
 </section> 
 
-
 <section class="section">
   <div class="container is-max-desktop">
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">&#9835 Audio-Visual Separation from Diverse Categories</h2>
+          <p> We show DAVIS's separation results across diverse categories.</p>
+          <br>
+        
+        <!-- Example1. -->
+        <h3 class="title is-4">Example1: "Baltimore oriole calling" + "gibbon howling" </h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered" style="background-color: #f4fdf3; padding: 20px;"><table style="table-layout:fixed;">
+          <col span="1" style="width: 20%;">
+          <col span="1" style="width: 20%;">
+          <col span="1" style="width: 20%;">
+          <col span="1" style="width: 20%;">
+          <thead>
+            <tr>
+              <th style="text-align: center">Mixture</th>
+              <th style="text-align: center">Frame</th>
+              <th style="text-align: center">Ground Truth </th>
+              <th style="text-align: center">Prediction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/frame1.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/gtamp1.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/predamp1.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/mix.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center"></td>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/gt1.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+            </tr>
+            <tr>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/frame2.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/gtamp2.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+              <td style="text-align: center"><img src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/predamp2.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center"></td>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center"><audio src="static/separation/XVqQKMMGoUs_000061-baltimore oriole calling+72baZt5rKAs_000260-gibbon howling/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <!-- Example1. -->
+        
+        <!-- <br><br> -->
+        
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseMUSIC" aria-expanded="true" aria-controls="collapseMUSIC">
+                  &#x1F449; Click to fold/unfold more examples.
+                </button>
+              </h5>
+            </div>
+            <div id="collapseMUSIC" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+
+              <!-- Example2. -->
+              <h3 class="title is-4">Example2: "cow lowing" + "snake hissing" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/frame1.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/gtamp1.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/predamp1.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/mix.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/gt1.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/frame2.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/gtamp2.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/predamp2.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/lJSwhBfEdyA_000079-cow lowing+JkqXWP4nddE_000012-snake hissing/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example2. -->
+
+              <!-- Example3. -->
+              <h3 class="title is-4">Example3: "fire truck siren" + "helicopter" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/frame1.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/gtamp1.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/predamp1.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/mix.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/gt1.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/frame2.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/gtamp2.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/predamp2.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/28ehZa0fzmo_000028-fire truck siren+DDZlMjb-0i4_000150-helicopter/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example3. -->
+
+              <!-- Example1. -->
+              <h3 class="title is-4">Example4: "driving motorcycle" + "train whistling" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/frame1.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/gtamp1.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/predamp1.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/mix.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/gt1.mp3" style="max-width: 200px;" type="audio/wav" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/mix.jpg" style="width:224px;height:224px;" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/frame2.png" style="width:224px;height:224px;" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/gtamp2.jpg" style="width:224px;height:224px;" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/predamp2.jpg" style="width:224px;height:224px;" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/eaLhdHS_3uU_000130-driving motorcycle+3g3cr1rw3HU_000105-train whistling/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example1. -->
+            </div>
+          </div>
+  
+      </div>
+
+
+
+    </div>
+    <br><br>
+
+
+
+
+
+
 
     
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Example results on MUISC dataset</h2>
+        <h2 class="title is-3">&#9835 Example results on MUISC dataset</h2>
           <p><strong>Settings</strong>: We take audio samples of different categories in the MUSIC dataset and mix the two sources. Then we use their corresponding frames to separate the sources respectively. Comparisons between Ground Truth, DAVIS, and iQuery are provided. DAVIS clearly achieves better separation quality. Note that for each example, the two mixtures are the same.</p>
           <br>
         
@@ -233,7 +467,7 @@
         <h3 class="title is-4">Example1: "Accordion" + "Violin" </h3>
         <div class="content has-text-justified">
         </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
+        <div class="content has-text-centered" style="background-color: #f4fdf3; padding: 20px;"><table style="table-layout:fixed;">
           <col span="1" style="width: 20%;">
           <col span="1" style="width: 20%;">
           <col span="1" style="width: 20%;">
@@ -282,166 +516,180 @@
         </div>
         <!-- Example1. -->
         
-        <br><br>
+        <!-- <br><br> -->
+        
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseMUSIC" aria-expanded="true" aria-controls="collapseMUSIC">
+                  &#x1F449; Click to fold/unfold more examples.
+                </button>
+              </h5>
+            </div>
+            <div id="collapseMUSIC" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
 
-        <!-- Example1. -->
-        <h3 class="title is-4">Example2: "Cello" + "Trumpet" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example2. -->
+              <!-- Example2. -->
+              <h3 class="title is-4">Example2: "Cello" + "Trumpet" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction (DAVIS)</th>
+                    <th style="text-align: center">Prediction (iQuery)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/cello-2ARPm0djKIk+trumpet-I2QXo4mGeRE/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example2. -->
 
-        <!-- Example3. -->
-        <h3 class="title is-4">Example3: "Clarinet" + "Tuba" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example3. -->
+              <!-- Example3. -->
+              <h3 class="title is-4">Example3: "Clarinet" + "Tuba" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction (DAVIS)</th>
+                    <th style="text-align: center">Prediction (iQuery)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/clarinet-EXKxvMVayRk+tuba-4lVuJEIaXgo/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example3. -->
 
-        <!-- Example1. -->
-        <h3 class="title is-4">Example4: "erhu" + "Saxophone" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example1. -->
+              <!-- Example1. -->
+              <h3 class="title is-4">Example4: "erhu" + "Saxophone" </h3>
+              <div class="content has-text-justified">
+              </div>
+              <div class="content has-text-centered"><table style="table-layout:fixed;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 20%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Mixture</th>
+                    <th style="text-align: center">Frame</th>
+                    <th style="text-align: center">Ground Truth </th>
+                    <th style="text-align: center">Prediction (DAVIS)</th>
+                    <th style="text-align: center">Prediction (iQuery)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                    <td style="text-align: center"><img src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio src="static/separation/erhu-0VyVd_QUCl8+saxophone-5_NsbkyLO2Q/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <!-- Example1. -->
+            </div>
+          </div>
   
       </div>
 
@@ -451,7 +699,7 @@
     <br><br>
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Example results on AVE dataset</h2>
+        <h2 class="title is-3">&#9836 Example results on AVE dataset</h2>
           <p><strong>Settings</strong>: We take audio samples of different categories in the AVE dataset and mix the two sources. DAVIS clearly achieves better separation quality across diverse categories. Note that for each example, the two mixtures are the same.</p>
           <br>
 
@@ -460,7 +708,7 @@
         <div class="content has-text-justified">
         </div>
         <p style="color:red;">The background noise in the "Clock" video is also dropped by the model as no related visual information presents in the frame.</p>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
+        <div class="content has-text-centered" style="background-color: #f4fdf3; padding: 20px;"><table style="table-layout:fixed;">
           <col span="1" style="width: 20%;">
           <col span="1" style="width: 20%;">
           <col span="1" style="width: 20%;">
@@ -509,169 +757,307 @@
         </div>
         <!-- Example1. -->
 
-        <!-- Example2. -->
-        <h3 class="title is-4">Example2: "Rats" + "Motorcycle" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <p style="color:red;">The background speech in the "Rats" video is also dropped by the model as no "human" presents in the frame.</p>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example2. -->       
-        
-        <!-- Example3. -->
-        <h3 class="title is-4">Example3: "Race car" + "Church bell" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example3. -->  
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseAVE" aria-expanded="true" aria-controls="collapseAVE">
+                  &#x1F449; Click to fold/unfold more examples.
+                </button>
+              </h5>
+            </div>
+            <div id="collapseAVE" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
 
-        <!-- Example3. -->
-        <h3 class="title is-4">Example4: "Helicopter" + "Bark" </h3>
-        <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered"><table style="table-layout:fixed;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <col span="1" style="width: 20%;">
-          <thead>
-            <tr>
-              <th style="text-align: center">Mixture</th>
-              <th style="text-align: center">Frame</th>
-              <th style="text-align: center">Ground Truth </th>
-              <th style="text-align: center">Prediction (DAVIS)</th>
-              <th style="text-align: center">Prediction (iQuery)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/frame1.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp1.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.jpg" alt="mix.jpg" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/frame2.jpg" alt="frame1.jpg" class="image"/></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp2.jpg" alt="predmap.png" class="spec" /></td>
-              <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
-            </tr>
-            <tr>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-              <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <!-- Example4. -->  
+                <!-- Example2. -->
+                <h3 class="title is-4">Example2: "Rats" + "Motorcycle" </h3>
+                <div class="content has-text-justified">
+                </div>
+                <p style="color:red;">The background speech in the "Rats" video is also dropped by the model as no "human" presents in the frame.</p>
+                <div class="content has-text-centered"><table style="table-layout:fixed;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <thead>
+                    <tr>
+                      <th style="text-align: center">Mixture</th>
+                      <th style="text-align: center">Frame</th>
+                      <th style="text-align: center">Ground Truth </th>
+                      <th style="text-align: center">Prediction (DAVIS)</th>
+                      <th style="text-align: center">Prediction (iQuery)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/5DgTnYsx4h8-Rodents, rats, mice+-HmuMoykRqA-Motorcycle/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <!-- Example2. -->       
+                
+                <!-- Example3. -->
+                <h3 class="title is-4">Example3: "Race car" + "Church bell" </h3>
+                <div class="content has-text-justified">
+                </div>
+                <div class="content has-text-centered"><table style="table-layout:fixed;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <thead>
+                    <tr>
+                      <th style="text-align: center">Mixture</th>
+                      <th style="text-align: center">Frame</th>
+                      <th style="text-align: center">Ground Truth </th>
+                      <th style="text-align: center">Prediction (DAVIS)</th>
+                      <th style="text-align: center">Prediction (iQuery)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/7DLmBTAGLmI-Race car, auto racing+hOuyJFqb4JM-Church bell/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <!-- Example3. -->  
 
+                <!-- Example3. -->
+                <h3 class="title is-4">Example4: "Helicopter" + "Bark" </h3>
+                <div class="content has-text-justified">
+                </div>
+                <div class="content has-text-centered"><table style="table-layout:fixed;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <thead>
+                    <tr>
+                      <th style="text-align: center">Mixture</th>
+                      <th style="text-align: center">Frame</th>
+                      <th style="text-align: center">Ground Truth </th>
+                      <th style="text-align: center">Prediction (DAVIS)</th>
+                      <th style="text-align: center">Prediction (iQuery)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/frame1.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gtamp1.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp1.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp1_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gt1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred1.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred1_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.jpg" alt="mix.jpg" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/frame2.jpg" alt="frame1.jpg" class="image"/></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gtamp2.jpg" alt="gtamp.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp2.jpg" alt="predmap.png" class="spec" /></td>
+                      <td style="text-align: center"><img src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/predamp2_iQuery.jpg" alt="predmap.png" class="spec" /></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/mix.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/gt2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred2.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                      <td style="text-align: center"><audio src="static/separation/07tRPkQBQRg-Helicopter+ALP8_z817Uw-Bark/pred2_iQuery.mp3" style="max-width: 200px;" type="audio/mpeg" controls="" controlsList="nodownload noplaybackrate">Your browser does not support the audio element.</audio></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <!-- Example4. -->  
+              </div>
+            </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+    <!-- Application. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">&#9758 Application: Zero-Shot Text-Guided Separation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We show an application: Zero-Shot Text-Guided Source Separation, which utilizes our trained audio-visual separation model to enable text query at inference. During training, we use CLIP-image encoder to extract the visual embeddings as conditions. Thanks to the strong capabilities of the CLIP model, which aligns corresponding image and text features into closely matched embeddings, we can use the text features generated by the CLIP-text encoder from a text query in a zero-shot setting. Combining the parsing capability from Large Language Models, our model can further allow for user-instructed sound separation, <i>i.e.</i>, user can use our audio-visual model to separate sounds by providing their insturctions in the form of text.
+          </p>
+        </div>
+        <img src="./static/zeroshot.png" />
+        <br/>
+
+      </div>
+    </div>
+    <!-- / Application. -->
+  </div>
+  <br><br>
+  <p>
+    <i>During testing, text prompts are used as conditions to the DAVIS model, which is trained with images as conditions.</i>
+  </p>
+  <div class = "table-container">
+    <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+      <thead>
+        <tr>
+          <td scope="col" width=300px>
+            <font color="061E61">Mixture: <i>Helicopter</i> + <i>Train Horn</i></font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Helicopter."</font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Train Horn."</font>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"><audio controls="controls">
+              <source src="./static/text-guided/ANAGPl7QZ0k-Helicopter+0_eJQ3UbQ1U-Train horn/mix.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+          <td><audio controls="controls">
+            <source src="./static/text-guided/ANAGPl7QZ0k-Helicopter+0_eJQ3UbQ1U-Train horn/pred1.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+            <td><audio controls="controls">
+              <source
+                      src="./static/text-guided/ANAGPl7QZ0k-Helicopter+0_eJQ3UbQ1U-Train horn/pred2.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+      <thead>
+        <tr>
+          <td scope="col" width=300px>
+            <font color="061E61">Mixture: <i>Shofar</i> + <i>Motorcycle</i></font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Shofar."</font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Motorcycle."</font>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"><audio controls="controls">
+              <source src="./static/text-guided/ddU9u9pBszc-Shofar+-jXKNLiTd4k-Motorcycle/mix.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+          <td><audio controls="controls">
+            <source src="./static/text-guided/ddU9u9pBszc-Shofar+-jXKNLiTd4k-Motorcycle/pred1.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+            <td><audio controls="controls">
+              <source
+                      src="./static/text-guided/ddU9u9pBszc-Shofar+-jXKNLiTd4k-Motorcycle/pred2.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+      <thead>
+        <tr>
+          <td scope="col" width=300px>
+            <font color="061E61">Mixture: <i>Church bell</i> + <i>Female speech</i></font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Church bell."</font>
+          </td>
+          <td scope="col" width=300px>
+            <font color="061E61">Prompt: "A photo of Female speech."</font>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"><audio controls="controls">
+              <source src="./static/text-guided/cfoJrTWCMeA-Church bell+1PtJ6jckef0-Female speech, woman speaking/mix.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+          <td><audio controls="controls">
+            <source src="./static/text-guided/cfoJrTWCMeA-Church bell+1PtJ6jckef0-Female speech, woman speaking/pred1.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+            <td><audio controls="controls">
+              <source
+                      src="./static/text-guided/cfoJrTWCMeA-Church bell+1PtJ6jckef0-Female speech, woman speaking/pred2.mp3"
+                autoplay />Your browser does not support the audio element.
+            </audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section> 
 
 
 <!-- 
